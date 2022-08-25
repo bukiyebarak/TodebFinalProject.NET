@@ -1,3 +1,8 @@
+using Business.Abstract;
+using Business.Concrete;
+using Business.Configuration.Mapper;
+using DAL.Abstract;
+using DAL.Concrete.EF;
 using DAL.DbContexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +32,20 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DBContext>(ServiceLifetime.Transient);
+
+
+            //Mapper iþlemleri için servise MapperProfile eklendi.
+            services.AddAutoMapper(config =>
+            {
+                config.AddProfile(new MapperProfile());
+            });
+
+            services.AddScoped<IApartmentService, ApartmentService>();
+            services.AddScoped<IApartmentRepository, ApartmentRepository>();
+
+
+
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
