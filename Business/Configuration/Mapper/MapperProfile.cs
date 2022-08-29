@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DTO.Apartment;
+using DTO.User;
 using Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Business.Configuration.Mapper
         public MapperProfile()
         {
             CreateMap<CreateApartmentRequest, Apartment>();
+            CreateMap<CreateUserRegisterRequest, User>();
         }
     }
 }

@@ -42,6 +42,8 @@ namespace API
 
             services.AddScoped<IApartmentService, ApartmentService>();
             services.AddScoped<IApartmentRepository, ApartmentRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
 
 
 

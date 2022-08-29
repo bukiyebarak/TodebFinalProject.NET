@@ -6,12 +6,12 @@ namespace DAL.DbContexts
 {
     public class DBContext:DbContext
     {
-        ////private IConfiguration _configuration;
+        private IConfiguration _configuration;
 
-        ////public DBContext(IConfiguration configuration)
-        ////{
-        ////    _configuration = configuration;
-        ////}
+        public DBContext(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         public DbSet<User> Users { get; set; }
         public DbSet<UserPassword> UserPasswords { get; set; }
@@ -24,10 +24,10 @@ namespace DAL.DbContexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder.UseSqlServer("Server=. ;Database=DBApartment;Trusted_Connection=True"));
+            //base.OnConfiguring(optionsBuilder.UseSqlServer("Server=. ;Database=DBApartment;Trusted_Connection=True"));
 
-            //var connectionString = _configuration.GetConnectionString("Dbcom");
-            //base.OnConfiguring(optionsBuilder.UseSqlServer(connectionString));
+            var connectionString = _configuration.GetConnectionString("Dbcom");
+            base.OnConfiguring(optionsBuilder.UseSqlServer(connectionString));
         }
     }
 }
