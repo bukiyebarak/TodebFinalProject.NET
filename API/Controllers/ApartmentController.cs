@@ -1,11 +1,14 @@
 ﻿using Business.Abstract;
 using DTO.Apartment;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models.Entities;
 
 namespace API.Controllers
 {
+    //yetkilendirme işlemi yapıldı
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ApartmentController : ControllerBase
@@ -17,6 +20,8 @@ namespace API.Controllers
             _service = apartmentService;
         }
 
+        //herkesin erişimine açık
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Get()
         {
