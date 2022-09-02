@@ -29,6 +29,7 @@ namespace API.Controllers
             return Ok(data);
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult Post(CreateApartmentRequest apartment)
         {

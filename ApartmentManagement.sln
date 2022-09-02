@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{8A6CE30C-1EBD-4B0C-A829-5F6171ED4858}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{8A6CE30C-1EBD-4B0C-A829-5F6171ED4858}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{7ED91667-0A57-46AF-A9CA-2EDE562EC4C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{7ED91667-0A57-46AF-A9CA-2EDE562EC4C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{D937BCA1-D8B0-430F-865C-C8F55B74F9BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{D937BCA1-D8B0-430F-865C-C8F55B74F9BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{BDB7BB8B-DAF8-43C9-844C-EB530600C324}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{BDB7BB8B-DAF8-43C9-844C-EB530600C324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{B345F618-9C54-4F23-801D-E9429FD246DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{B345F618-9C54-4F23-801D-E9429FD246DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundJobs", "BackgroundJobs\BackgroundJobs.csproj", "{CD00CA4B-3A4B-490E-A45D-9EE4181C227E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B345F618-9C54-4F23-801D-E9429FD246DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B345F618-9C54-4F23-801D-E9429FD246DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B345F618-9C54-4F23-801D-E9429FD246DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD00CA4B-3A4B-490E-A45D-9EE4181C227E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD00CA4B-3A4B-490E-A45D-9EE4181C227E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD00CA4B-3A4B-490E-A45D-9EE4181C227E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD00CA4B-3A4B-490E-A45D-9EE4181C227E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

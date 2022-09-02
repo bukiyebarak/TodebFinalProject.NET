@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BackgroundJobs.Abstract;
 using Business.Abstract;
 using Business.Configuration.Extensions;
 using Business.Configuration.Response;
@@ -19,12 +20,13 @@ namespace Business.Concrete
     {
         private readonly IApartmentRepository _apartmentRepository;
         private IMapper _mapper;
+        private IJobs _jobs;
        
-        public ApartmentService(IApartmentRepository apartmentRepository, IMapper mapper)
+        public ApartmentService(IApartmentRepository apartmentRepository, IMapper mapper, IJobs jobs)
         {
             _apartmentRepository = apartmentRepository;
             _mapper = mapper;
-           
+            _jobs = jobs;
         }
         public CommandResponse Delete(Apartment apartment)
         {
@@ -51,6 +53,10 @@ namespace Business.Concrete
 
             _apartmentRepository.Add(entity);
             _apartmentRepository.SaveChanges();
+
+            _jobs.FireAndForget(entity.Id, entity.Floor);
+            _jobs.DelayedJob(entity.Id, entity.Floor, TimeSpan.FromSeconds(15));
+
             return new CommandResponse
             {
                 Status = true,
