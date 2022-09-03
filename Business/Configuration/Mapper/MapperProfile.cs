@@ -16,6 +16,8 @@ namespace Business.Configuration.Mapper
         {
             CreateMap<CreateApartmentRequest, Apartment>();
             CreateMap<CreateUserRegisterRequest, User>();
+            CreateMap<UpdateApartmentRequest, Apartment>();
+            CreateMap<DeleteApartmentRequest,Apartment>();
         }
     }
 }

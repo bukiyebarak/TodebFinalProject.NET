@@ -13,7 +13,7 @@ namespace Business.Abstract
     {
         public IEnumerable<Apartment> GetAll();
         public CommandResponse Insert(CreateApartmentRequest apartment);
-        public CommandResponse Update(Apartment apartment);
-        public CommandResponse Delete(Apartment apartment);
+        public CommandResponse Update(UpdateApartmentRequest apartment);
+        public CommandResponse Delete(DeleteApartmentRequest apartment);
     }
 }

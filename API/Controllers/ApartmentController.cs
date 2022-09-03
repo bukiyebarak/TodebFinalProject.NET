@@ -8,7 +8,7 @@ using Models.Entities;
 namespace API.Controllers
 {
     //yetkilendirme işlemi yapıldı
-    [Authorize]
+   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ApartmentController : ControllerBase
@@ -38,14 +38,14 @@ namespace API.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(Apartment apartment)
+        public IActionResult Put(UpdateApartmentRequest apartment)
         {
             var response = _service.Update(apartment);
             return Ok(response);
         }
 
         [HttpDelete]
-        public IActionResult Delete(Apartment apartment)
+        public IActionResult Delete(DeleteApartmentRequest apartment)
         {
             var response = _service.Delete(apartment);
             return Ok(response);
