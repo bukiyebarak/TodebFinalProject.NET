@@ -4,6 +4,7 @@ using BackgroundJobs.Concrete.HangfireJobs;
 using Business.Abstract;
 using Business.Concrete;
 using Business.Configuration.Mapper;
+using Cache.Redis;
 using DAL.Abstract;
 using DAL.Concrete.EF;
 using DAL.DbContexts;
@@ -17,6 +18,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -52,6 +54,30 @@ namespace API
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IJobs, HangfireJobs>();
             services.AddScoped<ISendMailService, SendMailService>();
+            services.AddScoped<ICacheService, CacheService>();
+           
+            #region Cache
+            //Redis NoSql bir veri tabanýdýr.
+            //distributed cache için redis impelemetasyonu yapýldý. RedisEndPointInfo ile RedisTen alýnan bilgiler eþleþtirildi.
+            var redisConfigInfo = Configuration.GetSection("RedisEndpointInfo").Get<RedisEndpointInfo>();
+
+            services.AddStackExchangeRedisCache(opt =>
+            {
+                opt.ConfigurationOptions = new ConfigurationOptions()
+                {
+                    EndPoints =
+                    {
+                        { redisConfigInfo.Endpoint, redisConfigInfo.Port }
+                    },
+                    Password = redisConfigInfo.Password,
+                    User = redisConfigInfo.Username
+
+                };
+            });
+            //local cache kullanýmý
+            //Inmemory Ramde tutulur.
+            services.AddMemoryCache();
+            #endregion
 
             #region Token
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<Business.Configuration.Auth.TokenOption>();
