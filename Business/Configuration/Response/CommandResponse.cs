@@ -10,6 +10,6 @@ namespace Business.Configuration.Response
     {
         public bool Status { get; set; }
         public string Messsage { get; set; }
-        public DateTime Created_At { get; set; }
+        public DateTime Created_At { get; set; } 
     }
 }

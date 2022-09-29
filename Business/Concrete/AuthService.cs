@@ -96,7 +96,6 @@ namespace Business.Concrete
                     Messsage = "Şifre Doğru"
                 };
             }
-
             return new CommandResponse()
             {
                 Status = false,

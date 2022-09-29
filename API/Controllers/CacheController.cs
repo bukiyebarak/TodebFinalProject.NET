@@ -40,14 +40,12 @@ namespace API.Controllers
             return Ok(list);
         }
 
-
         [HttpPost("InMemoryTest")]
         public IActionResult InMemoryTest()
         {
             _cacheExample.InMemSetString("InMemoryStr", "InMemoryStrExample");
             _cacheExample.InMemSetObject("InMemoryList", new int[] { 1, 3, 9, 81 });
             return Ok();
-
         }
 
         [HttpGet("GetInMemory")]

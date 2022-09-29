@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DTO.Apartment;
+using DTO.Bill;
 using DTO.User;
 using Models.Entities;
 using System;
@@ -18,6 +19,9 @@ namespace Business.Configuration.Mapper
             CreateMap<CreateUserRegisterRequest, User>();
             CreateMap<UpdateApartmentRequest, Apartment>();
             CreateMap<DeleteApartmentRequest,Apartment>();
+            CreateMap<CreateBillRequest,Bill>();
+            CreateMap<DeleteBillRequest,Bill>();
+            CreateMap<UpdateBillRequest, Bill>();
         }
     }
 }

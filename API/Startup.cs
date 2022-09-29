@@ -55,7 +55,9 @@ namespace API
             services.AddScoped<IJobs, HangfireJobs>();
             services.AddScoped<ISendMailService, SendMailService>();
             services.AddScoped<ICacheService, CacheService>();
-           
+            services.AddScoped<IBillService, BillService>();
+            services.AddScoped<IBillRepository, BillRepository>();
+
             #region Cache
             //Redis NoSql bir veri tabanýdýr.
             //distributed cache için redis impelemetasyonu yapýldý. RedisEndPointInfo ile RedisTen alýnan bilgiler eþleþtirildi.
@@ -118,8 +120,6 @@ namespace API
             services.AddHangfireServer();
             #endregion
            
-
-
             services.AddControllers();
 
             //401 hataso için düzenleme 
